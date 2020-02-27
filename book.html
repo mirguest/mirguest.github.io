@@ -1,15 +1,32 @@
+<!DOCTYPE html>
 <html>
   <head>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $.get("/book/store.json", function(data, status){
-          alert("Data: " + data + "\nStatus: " + status);
-        });
-      });
-    </script>
   </head>
   <body>
     <h1>My books</h1>
+
+
+    <table id="bookstore"></table>
+
+    
+    <script>
+      $.getJSON("/book/store.json", function(data){
+        $("#bookstore").append("<tbody>");
+        var booklist = data["data"];
+        for (var counter = 0; counter < booklist.length; counter++) {
+          if ($.isEmptyObject(booklist[counter])) {
+              continue;
+          }
+          $("#bookstore").append("<tr>" +
+                                        "<td>"+booklist[counter].title+"</td>" +
+                                 "/<tr>")
+        }
+        
+        $("#bookstore").append("</tbody>");
+      });
+
+    </script>
+
   </body>
 </html>
