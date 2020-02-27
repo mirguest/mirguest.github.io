@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="我的个人图书馆">
+    <meta name="keywords" content="计算机">
+    <meta name="author" content="mirguest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   </head>
   <body>
     <h1>My books</h1>
 
 
-    <table id="bookstore"></table>
+    <table id="bookstore">
+      <thead>
+        <tr>
+          <th>书名</th>
+          <th>ISBN</th>
+          <th>位置/地点</th>
+          <th>相对位置</th>
+        </tr>
+      </thead>
+    </table>
 
     
     <script>
@@ -20,6 +34,9 @@
           }
           $("#bookstore").append("<tr>" +
                                         "<td>"+booklist[counter].title+"</td>" +
+                                        "<td>"+booklist[counter].isbn+"</td>" +
+                                        "<td>"+booklist[counter].room+"</td>" +
+                                        "<td>"+booklist[counter].position+"</td>" +
                                  "/<tr>")
         }
         
