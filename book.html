@@ -2,8 +2,10 @@
   <head>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script>
-      $.get("/book/store.json", function(data, status){
-      alert("Data: " + data + "\nStatus: " + status);
+      $(document).ready(function() {
+        $.get("/book/store.json", function(data, status){
+          alert("Data: " + data + "\nStatus: " + status);
+        });
       });
     </script>
   </head>
