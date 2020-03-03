@@ -36,6 +36,7 @@
     <table id="bookstore">
       <thead>
         <tr>
+          <th>序号</th>
           <th>书名</th>
           <th>ISBN</th>
           <th>位置/地点</th>
@@ -58,6 +59,8 @@
           }
           var doubansearch = "https://search.douban.com/book/subject_search?search_text="+booklist[counter].isbn;
           $("#bookstore > tbody").append($("<tr>")
+                                            .append($("<td>")
+                                                    .append(counter+1))
                                             .append($("<td>")
                                                     .append(booklist[counter].title))
                                             .append($("<td>")
