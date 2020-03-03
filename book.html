@@ -69,7 +69,8 @@
                                             .append($("<td>")
                                                     .append(booklist[counter].tags.join(",")))
                                             .append($("<td>")
-                                                    .append("<a href="+booklist[counter].links[0]+">京东</a>"))
+                                                    .append("<a href="+booklist[counter].links[0]+">京东</a>&nbsp;")
+                                                    .append("<a href=https://search.douban.com/book/subject_search?search_text="+booklist[counter].isbn+">豆瓣</a>"))
                                       
                                         );
         }
