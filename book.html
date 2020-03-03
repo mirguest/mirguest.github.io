@@ -60,7 +60,7 @@
               continue;
           }
           var doubansearch = "https://search.douban.com/book/subject_search?search_text="+booklist[counter].isbn;
-          var guotusearch = "http://opac.nlc.cn/F/VRVMT75YF29EL2EGEMB1647NUJS62AICINYTLRG3Q992DSDQJF-51511?func=find-b&find_code=ISB&request="+booklist[counter].isbn;
+          <!-- var guotusearch = "http://opac.nlc.cn/F/VRVMT75YF29EL2EGEMB1647NUJS62AICINYTLRG3Q992DSDQJF-51511?func=find-b&find_code=ISB&request="+booklist[counter].isbn; -->
           $("#bookstore > tbody").append($("<tr>")
                                             .append($("<td>")
                                                     .append(counter+1))
@@ -78,7 +78,7 @@
                                                     .append($("<a>").attr("href", booklist[counter].links[0]).append("京东")).append("&nbsp;")
                                                     .append($("<a>").attr("href", booklist[counter].links[1]).append("豆瓣")).append("&nbsp;")
                                                     .append($("<a>").attr("href", doubansearch).append("豆瓣搜索")).append("&nbsp;")
-                                                    .append($("<a>").attr("href", guotusearch).append("国家图书馆")).append("&nbsp;")
+                                                    <!-- .append($("<a>").attr("href", guotusearch).append("国家图书馆")).append("&nbsp;") -->
                                                     )
                                       
                                         );
