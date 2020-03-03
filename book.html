@@ -19,6 +19,8 @@
           <th>ISBN</th>
           <th>位置/地点</th>
           <th>相对位置</th>
+          <th>我的分类</th>
+          <th>链接</th>
         </tr>
       </thead>
     </table>
@@ -37,6 +39,8 @@
                                         "<td>"+booklist[counter].isbn+"</td>" +
                                         "<td>"+booklist[counter].room+"</td>" +
                                         "<td>"+booklist[counter].position+"</td>" +
+                                        "<td>"+booklist[counter].tags.join(",")+"</td>" +
+                                        "<td><a href="+booklist[counter].links[0]+">京东</a></td>" +
                                  "/<tr>")
         }
         
