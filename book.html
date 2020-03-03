@@ -56,7 +56,7 @@
           if ($.isEmptyObject(booklist[counter])) {
               continue;
           }
-
+          var doubansearch = "https://search.douban.com/book/subject_search?search_text="+booklist[counter].isbn;
           $("#bookstore > tbody").append($("<tr>")
                                             .append($("<td>")
                                                     .append(booklist[counter].title))
@@ -69,8 +69,10 @@
                                             .append($("<td>")
                                                     .append(booklist[counter].tags.join(",")))
                                             .append($("<td>")
-                                                    .append("<a href="+booklist[counter].links[0]+">京东</a>&nbsp;")
-                                                    .append("<a href=https://search.douban.com/book/subject_search?search_text="+booklist[counter].isbn+">豆瓣</a>"))
+                                                    .append($("<a>").attr("href", booklist[counter].links[0]).append("京东")).append("&nbsp;")
+                                                    .append($("<a>").attr("href", booklist[counter].links[1]).append("豆瓣")).append("&nbsp;")
+                                                    .append($("<a>").attr("href", doubansearch).append("豆瓣搜索")).append("&nbsp;")
+                                                    )
                                       
                                         );
         }
