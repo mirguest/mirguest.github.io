@@ -38,12 +38,12 @@
     <table id="bookstore">
       <thead>
         <tr>
-          <th>序号</th>
-          <th>书名</th>
-          <th>ISBN</th>
-          <th>位置/地点</th>
-          <th>相对位置</th>
-          <th>我的分类</th>
+          <th class="sortable">序号</th>
+          <th class="sortable">书名</th>
+          <th class="sortable">ISBN</th>
+          <th class="sortable">位置/地点</th>
+          <th class="sortable">相对位置</th>
+          <th class="sortable">我的分类</th>
           <th>链接</th>
         </tr>
       </thead>
@@ -83,6 +83,21 @@
         }
       });
 
+      $('th.sortable').click(function(){
+          var table = $(this).parents('table').eq(0)
+          var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+          this.asc = !this.asc
+          if (!this.asc){rows = rows.reverse()}
+          for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+      })
+      function comparer(index) {
+          return function(a, b) {
+              var valA = getCellValue(a, index), valB = getCellValue(b, index)
+              return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+          }
+      }
+      function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+      
     </script>
 
   </body>
